@@ -1,12 +1,21 @@
 pipeline {
-    agent {
-        docker { image 'node:7-alpine' }
+  environment {
+    registry = "49.247.207.10:5000/jgtcom/jgtcom"
+    registryCredential = 'registry'
+  }
+  agent any
+  stages {
+    stage('Cloning Git') {
+      steps {
+        git 'https://github.com/nationminu/docker-build-jenkins.git'
+      }
     }
-    stages {
-        stage('Test') {
-            steps {
-                sh 'node --version'
-            }
+    stage('Building image') {
+      steps{
+        script {
+          docker.build registry + ":$BUILD_NUMBER"
         }
+      }
     }
+  }
 }
