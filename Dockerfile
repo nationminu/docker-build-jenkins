@@ -5,3 +5,4 @@ FROM php:7.3-apache
 #    && apt-get clean 
 
 COPY . /var/www/html
+RUN rm -f /var/www/html/Dockerfile
