@@ -5,4 +5,4 @@ FROM php:7.3-apache
 #    && apt-get clean 
 
 COPY . /var/www/html
-RUN rm -f /var/www/html/Dockerfile
+RUN docker-php-ext-install mysqli && docker-php-ext-enable mysqli && a2enmod rewrite && rm -f /var/www/html/Dockerfile
