@@ -4,4 +4,4 @@ FROM php:7.3-apache
 #    && apt-get -y install git \
 #    && apt-get clean 
 
-COPY . /var/www/html
+COPY ../ /var/www/html
