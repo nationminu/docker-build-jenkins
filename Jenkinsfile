@@ -26,7 +26,7 @@ pipeline {
     stage('Deploying Service') {
       steps {
          sh '''
-            echo 'jgtcom!@#$' |docker login -u admin --password-stdin 49.247.207.10:5000
+            echo 'xxxxx' |docker login -u admin --password-stdin 49.247.207.10:5000
             '''
          //sh "docker service update jgtcom_jgtcom --image 49.247.207.10:5000/jgtcom/jgtcom:$BUILD_NUMBER --with-registry-auth --update-parallelism 1 --update-delay 300s --update-order start-first"
          sh "docker service update jgtcom_jgtcom --image 49.247.207.10:5000/jgtcom/jgtcom:$BUILD_NUMBER --with-registry-auth --update-delay 300s"
